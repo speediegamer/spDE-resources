@@ -1,5 +1,4 @@
-// speedie's Dynamic Window Manager configuration file!
-// https://github.com/speediegamer/configurations
+// spDE dwm configuration
 static const unsigned int borderpx            = 1;
 static const unsigned int snap                = 32;
 static const unsigned int gappx               = 4;
