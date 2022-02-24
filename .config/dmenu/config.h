@@ -1,6 +1,4 @@
-// speedie's dmenu configuration
-// https://github.com/speediegamer/configurations
-// Install terminus font if not present!
+// spDE dmenu configuration!
 
 /* See LICENSE file for copyright and license details. */
 /* Default settings; can be overriden by command line. */
