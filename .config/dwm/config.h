@@ -41,7 +41,7 @@ static const Rule rules[] = {
 	{ "Chromium",  NULL,       NULL,       2 << 9,       0,            0,           -1 },
 	{ "urxvt",     NULL,       NULL,       3 << 9,       0,            0,           -1 },
 	{ "mocp",      NULL,       NULL,       5 << 9,       1,            0,           -1 },
-        { "alsamixer", NULL,       NULL,       0,            1,            0,           -1 }.
+        { "alsamixer", NULL,       NULL,       0,            1,            0,           -1 },
 };
 
 #include "layouts.c"
@@ -67,12 +67,12 @@ static Key keys[] = {
         { MODKEY|ControlMask,           XK_s,      spawn,          SHCMD("cd ~/Screenshots && rm -rf ~/Screenshots/.TempScreenshot.png && scrot '.TempScreenshot.png' -b -p -q 100 && xclip -in -selection clipboard -target image/png ~/Screenshots/.TempScreenshot.png && killall scrot") },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st fff") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("librewolf || firefox || chromium || chrome") },
-	// Uncomment if you want Mod+Shift+d to open Discord in Firefox { ControlMask|ShiftMask,        XK_d,      spawn,          SHCMD("firefox https://discord.com/channels/@me") },
+	{ ControlMask|ShiftMask,        XK_d,      spawn,          SHCMD("librewolf https://discord.com/channels/@me || firefox https://discord.com/channels/@me") },
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st htop") },
-	// Uncomment if you want Mod+Control+x to open btop in ST { ControlMask|MODKEY,           XK_x,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st btop --utf-force") },
+	{ ControlMask|MODKEY,           XK_x,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st btop --utf-force") },
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("obs") },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st alsamixer") },
-	// Uncomment if you want Mod+Shift+m to open mocp in ST { MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st mocp -T transparent-background") }, 
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st mocp -T transparent-background") }, 
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
