@@ -4,7 +4,7 @@ static const unsigned int snap                = 32;
 static const unsigned int gappx               = 4;
 static const int showbar                      = 1;
 static const int topbar                       = 1;
-static const char *fonts[]                    = { "Terminus:size=8", "fontawesome:size=20" };
+static const char *fonts[]                    = { "Terminus:size=8", "fontawesome:size=8" };
 static const char col_background[]            = "#222222"; // dwm dark bg & slstatus bg
 static const char col_backgroundmid[]         = "#222222"; // dwm middle background
 static const char col_textnorm[]              = "#bbbbbb"; // application title bar/font for norm
