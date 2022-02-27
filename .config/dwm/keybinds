@@ -1,0 +1,40 @@
+# spDE // list of default keybinds
+
+# dwm keybinds
+# core
+switch_tag="alt+shift+num" # num is a number between 0 and 10
+resize_window_increase="alt+d"
+resize_window_decrease="alt+a"
+quit_window="alt+shift+q"
+fullscreen_window="alt+f" # Any window should be fullscreen
+fullscreen_exit="alt+f"
+tilingmode_tile="ctrl+alt+t" # default mode
+tilingmode_float="ctrl+alt+r"
+tilingmode_grid="ctrl+alt+e"
+switch_window_order="alt+enter"
+
+# common software
+launch_term="alt+shift+enter"
+launch_filemanager="alt+shift+f"
+dmenu_launch="alt+shift+comma"
+take_screenshot="alt+shift+s"
+set_wallpaper="alt+shift+l" # spDE should come with setwallpaper.
+
+# launch software
+obs_launch="alt+shift+o" # NOTE: spDE does not come with OBS. Install it or this keybind will not be enabled!
+web_launch="alt+shift+w" # NOTE: Launches Librewolf by default. If librewolf isn't present it will launch firefox, chromium and finally chrome
+htop_launch="alt+shift+x" # NOTE: spDE does not come with htop. Install it or this keybind will not be enabled!
+btop_launch="ctrl+shift+x" # NOTE: spDE does not come with btop. Install it or this keybind will not be enabled!
+discord_launch="ctrl+shift+d" # NOTE: Launches Librewolf https://discord.com/channels/@me by default.
+volumectrl_launch="ctrl+shift+a" # NOTE: spDE should come with alsa-utils but you may need to add yourself to the "audio" group.
+mocp_launch="alt+shift+m" # NOTE: By default this doesn't launch in any specific directory.
+
+# dmenu keybinds
+# none
+
+# st keybinds
+# none
+
+# slstatus keybinds
+# none
+
