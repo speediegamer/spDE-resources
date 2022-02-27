@@ -57,7 +57,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ShiftMask,             KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggletag,      {.ui = 1 << TAG} },
 
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -76,7 +76,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st alsamixer") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st mocp -T transparent-background") }, 
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st /usr/bin/setwallpaper") }, 
-	{ MODKEY|ControlMask.           XK_h,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st $EDITOR /usr/local/bin/.spDE/dwm/keybinds") },
+	{ MODKEY|ControlMask,           XK_h,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st nvim /usr/local/bin/.spDE/dwm/keybinds") },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
