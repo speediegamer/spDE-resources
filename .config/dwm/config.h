@@ -76,6 +76,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st alsamixer") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st mocp -T transparent-background") }, 
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st /usr/bin/setwallpaper") }, 
+	{ MODKEY|ControlMask.           XK_h,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st $EDITOR /usr/local/bin/.spDE/dwm/keybinds") },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
