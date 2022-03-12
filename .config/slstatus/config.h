@@ -67,9 +67,8 @@ static const char unknown_str[] = "n/a";
  */
 
 static const struct arg args[] = {
-	{ cpu_freq, "  : %shz   ",           NULL    },
-        { ram_used, "%sB    ",               NULL    },
-	{ netspeed_tx, ": %sB/s    ",          "eth0"},
-	{ datetime, ":  %s  ",                 "%F"    },
-	{ datetime, ": %s",                    "%T"    },
+        { ram_used, "%sB used,    ",               NULL    },
+	{ ram_free, "%sB free,   ",               NULL    },
+	{ datetime, "%s  ",                 "%F"    },
+	{ datetime, "%s",                    "%T"    },
 };
