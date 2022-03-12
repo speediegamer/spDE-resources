@@ -19,8 +19,8 @@ static const int resizehints                  = 0;
 static char dmenumon[2]                       = "0";
 static const char *dmenucmd[]                 = { NULL };
 static const char *termcmd[]                  = { NULL };
-static const char *tags[] = { "1", "2", "3", "4", "", "", "", "", "" };
-static const char *alttags[] = { "[1]", "[2]", "[3]", "[4]", "[]", "[]", "[]", "[]", "[]" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *alttags[] = { "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]", "[9]" };
 static const char *colors[][3]      = {
 	[SchemeNorm] = { col_textnorm, col_background, col_windowbordernorm },
 	[SchemeSel]  = { col_textsel, col_backgroundmid, col_windowbordersel }, 
@@ -40,8 +40,6 @@ static const Rule rules[] = {
 	{ "Librewolf", NULL,       NULL,       2 << 9,       0,            0,           -1 },
 	{ "Chromium",  NULL,       NULL,       2 << 9,       0,            0,           -1 },
 	{ "urxvt",     NULL,       NULL,       3 << 9,       0,            0,           -1 },
-	{ "mocp",      NULL,       NULL,       5 << 9,       1,            0,           -1 },
-        { "alsamixer", NULL,       NULL,       0,            1,            0,           -1 },
 };
 
 #include "layouts.c"
