@@ -61,10 +61,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_comma,  spawn,          SHCMD("dmenu_run") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("/usr/local/bin/.spDE/st/st") },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("mkdir -pv ~/Screenshots") },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("cd ~/Screenshots && touch .TempScreenshot.png") },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("cd ~/Screenshots ; rm -rf ~/Screenshots/.TempScreenshot.png ; scrot '.TempScreenshot.png' -s -b -p -q 100 && xclip -in -selection clipboard -target image/png ~/Screenshots/.TempScreenshot.png && killall scrot") },
-        { MODKEY|ControlMask,           XK_s,      spawn,          SHCMD("cd ~/Screenshots ; rm -rf ~/Screenshots/.TempScreenshot.png ; scrot '.TempScreenshot.png' -b -p -q 100 && xclip -in -selection clipboard -target image/png ~/Screenshots/.TempScreenshot.png && killall scrot") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("maim -sB | xclip -selection clipboard -t image/png") },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st fff") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("librewolf || firefox || chromium || chrome") },
 	{ ControlMask|ShiftMask,        XK_d,      spawn,          SHCMD("librewolf https://discord.com/channels/@me || firefox https://discord.com/channels/@me") },
