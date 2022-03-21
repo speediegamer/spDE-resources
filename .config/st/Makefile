@@ -4,7 +4,7 @@
 
 include config.mk
 
-SRC = st.c x.c
+SRC = st.c x.c boxdraw.c
 OBJ = $(SRC:.c=.o)
 
 all: options st
@@ -23,11 +23,12 @@ config.h:
 
 st.o: config.h st.h win.h
 x.o: arg.h config.h st.h win.h
+boxdraw.o: config.h st.h boxdraw_data.h
 
 $(OBJ): config.h config.mk
 
 st: $(OBJ)
-	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
+	$(CC) -o $@ $(OBJ) $(STLDFLAGS) && rm config.h
 
 clean:
 	rm -f st $(OBJ) st-$(VERSION).tar.gz
