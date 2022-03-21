@@ -1,3 +1,5 @@
+!! spDE .Xresources
+
 ! special
 *.foreground:   #e7e7e7
 *.background:   #202020
@@ -37,10 +39,4 @@
 
 ! alpha
 *.alpha:        0.9
-
-URxvt.scrollBar: false
-URxvt.scrollBar_right: false
-URxvt.clipboard.autocopy: true
-URxvt.iso14755: false
-URxvt.cursorBlink: true
 
