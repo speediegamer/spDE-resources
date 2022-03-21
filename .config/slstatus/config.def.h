@@ -1,3 +1,5 @@
+/* spDE slstatus configuration */
+
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
@@ -66,7 +68,7 @@ static const char unknown_str[] = "n/a";
 
 static const struct arg args[] = {
 	{ cpu_freq, "  : %shz     ",           NULL    },
-    { ram_used, ": %sB    ",               NULL    },
+        { ram_used, ": %sB    ",               NULL    },
 	{ netspeed_tx, ": %sB/s    ",          "enp4s0"},
 	{ datetime, ":  %s  ",                 "%F"    },
 	{ datetime, ": %s",                    "%T"    },
