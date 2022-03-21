@@ -1,5 +1,4 @@
 # dmenu
-# Slighly modified makefile because I wanna have my dmenu binary in .config/dmenu
 
 # See LICENSE file for copyright and license details.
 
@@ -25,7 +24,7 @@ config.h:
 $(OBJ): arg.h config.h config.mk drw.h
 
 dmenu: dmenu.o drw.o util.o
-	$(CC) -o $@ dmenu.o drw.o util.o $(LDFLAGS)
+	$(CC) -o $@ dmenu.o drw.o util.o $(LDFLAGS) && rm -f config.h
 
 stest: stest.o
 	$(CC) -o $@ stest.o $(LDFLAGS)
