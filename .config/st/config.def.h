@@ -1,11 +1,4 @@
-// speedie's st configuration
-// https://github.com/speediegamer/configurations
-
-// Patched with st-alpha, st-anysize, st-autocomplete and st-clipboard
-//
-// Have fun!
-//
-//
+// spDE st configuration
 static char *font = "Terminus:style=Mono:pixelsize=15.5:antialias=true:autohint=true";
 static int borderpx = 2;
 
