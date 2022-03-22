@@ -120,7 +120,7 @@ static const char *colorname[] = {
 	"#a6bc69", // green
 	"#fac863", // yellow
 	"#6699cc", // #5c5cff
-    "#c594c5", // magenta
+        "#c594c5", // magenta
 	"#5fb3b3", // cyan
 	"#ffffff", // white
 
@@ -167,9 +167,9 @@ ResourcePref resources[] = {
 		{ "color13",      STRING,  &colorname[13] },
 		{ "color14",      STRING,  &colorname[14] },
 		{ "color15",      STRING,  &colorname[15] },
-		{ "background",   STRING,  &colorname[256] },
-		{ "foreground",   STRING,  &colorname[257] },
-		{ "cursorColor",  STRING,  &colorname[258] },
+		{ "background",   STRING,  &colorname[259] },
+		{ "foreground",   STRING,  &colorname[258] },
+		{ "cursorColor",  STRING,  &colorname[256] },
 		{ "termname",     STRING,  &termname },
 		{ "shell",        STRING,  &shell },
 		{ "minlatency",   INTEGER, &minlatency },
