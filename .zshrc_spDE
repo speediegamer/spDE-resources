@@ -1,20 +1,26 @@
 # spDE .zshrc configuration file.
 # Be careful as not using this file properly could result in unwanted changes.
 
+if [[ -f "/etc/hostname" ]]; then
+    host=$(cat /etc/hostname)
+else
+    host=$(hostname)
+fi
+
 # Set color based on distro
 if [[ "$(</etc/os-release)" =~ "void" ]]; then
-    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 11)$(hostname)$(tput setf 4) %d$(tput sgr0)]$ "
+    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 11)$host$(tput setf 4) %d$(tput sgr0)]$ "
 elif [[ "$(</etc/os-release)" =~ "gentoo" ]]; then
-    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 5)$(hostname)$(tput setf 4) %d$(tput sgr0)]$ " && bin="-bin"
+    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 5)$host$(tput setf 4) %d$(tput sgr0)]$ " && bin="-bin"
 elif [[ "$(</etc/os-release)" =~ "arch" ]]; then
-    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 13)$(hostname)$(tput setf 4) %d$(tput sgr0)]$ "
+    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 13)$host$(tput setf 4) %d$(tput sgr0)]$ "
 elif [[ "$(</etc/os-release)" =~ "artix" ]]; then
-    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 13)$(hostname)$(tput setf 4) %d$(tput sgr0)]$ "
+    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 13)$host$(tput setf 4) %d$(tput sgr0)]$ "
 fi
 
 # Make PS1 red if the user is logged in as root (su)
 if [[ $LOGNAME = "root" ]]; then
-    export PS1col="[$(tput setf 4)$(whoami)$(tput setf 4)@$(tput setf 4)$(hostname)$(tput setf 4) %d$(tput sgr0)]$ "          
+    export PS1col="[$(tput setf 4)$(whoami)$(tput setf 4)@$(tput setf 4)$host$(tput setf 4) %d$(tput sgr0)]$ "          
 fi
 
 # Enable autocomplete
@@ -31,7 +37,7 @@ export TERM='st-256color' # Change if you will be switching out the terminal
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/usr/lib/llvm/13/bin:$CPATH
 export PLAYER='mpv' # What media player to use. mpv is default since it comes with spDE.
 export MUSICDIR=/home/$(whoami)/Music # Directory where moc will look for music.
-export TERMINAL='/usr/local/bin/.spDE/st/st' # Required to be exported by my dwm configuration!!
+export TERMINAL='st' # Required to be exported by my dwm configuration!!
 export BROWSER='firefox' # Required to be exported by my dwm configuration!!
 export SEARCH='https://searx.org' # Default search engine to use
 export FETCH='sfetch' # Fetch script to run when zsh runs (Shell spDE comes with)
@@ -107,5 +113,6 @@ alias spdeconfig-wm='$EDITOR /usr/local/bin/.spDE/dwm/config.def.h && rm /usr/lo
 alias spdeconfig-term='$EDITOR /usr/local/bin/.spDE/st/config.def.h && rm /usr/local/bin/.spDE/st/config.h ; make $(nproc)'
 alias spdeconfig-menu='$EDITOR /usr/local/bin/.spDE/dmenu/config.def.h && rm /usr/local/bin/.spDE/dmenu/config.h ; make install'
 alias spdeconfig-status='$EDITOR /usr/local/bin/.spDE/slstatus/config.def.h && rm /usr/local/bin/.spDE/slstatus/config.h ; make $(nproc)'
+alias spdeversion='cat /usr/local/bin/.spDE/ver'
 ########################################################
 
