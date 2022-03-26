@@ -1,0 +1,111 @@
+# spDE .zshrc configuration file.
+# Be careful as not using this file properly could result in unwanted changes.
+
+# Set color based on distro
+if [[ "$(</etc/os-release)" =~ "void" ]]; then
+    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 11)$(hostname)$(tput setf 4) %d$(tput sgr0)]$ "
+elif [[ "$(</etc/os-release)" =~ "gentoo" ]]; then
+    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 5)$(hostname)$(tput setf 4) %d$(tput sgr0)]$ " && bin="-bin"
+elif [[ "$(</etc/os-release)" =~ "arch" ]]; then
+    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 13)$(hostname)$(tput setf 4) %d$(tput sgr0)]$ "
+elif [[ "$(</etc/os-release)" =~ "artix" ]]; then
+    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 13)$(hostname)$(tput setf 4) %d$(tput sgr0)]$ "
+fi
+
+# Make PS1 red if the user is logged in as root (su)
+if [[ $LOGNAME = "root" ]]; then
+    export PS1col="[$(tput setf 4)$(whoami)$(tput setf 4)@$(tput setf 4)$(hostname)$(tput setf 4) %d$(tput sgr0)]$ "          
+fi
+
+# Enable autocomplete
+autoload -Uz compinit
+compinit
+_comp_options+=(globdots)
+
+# Export variables
+export USER=$(whoami) # The user variable. You do not need to change this because it's automatically set to who you're logged into
+export CPATH=/usr/local/bin/.spDE # You can add more paths here if you want.
+export EDITOR='nvim' # What editor applications are going to use. Nvim is the default because neovim comes with spDE.
+export LANG='en_US.UTF-8' # Change if you wish to use a different language.
+export TERM='st-256color' # Change if you will be switching out the terminal
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/usr/lib/llvm/13/bin:$CPATH
+export PLAYER='mpv' # What media player to use. mpv is default since it comes with spDE.
+export TERMINAL='/usr/local/bin/.spDE/st/st' # Required to be exported by my dwm configuration!!
+export BROWSER='firefox' # Required to be exported by my dwm configuration!!
+export SEARCH='https://searx.org' # Default search engine to use
+export FETCH='sfetch' # Fetch script to run when zsh runs (Shell spDE comes with)
+export PS1=$PS1col # Set PS1 to variable PS1col defined earlier
+export MIXER='alsamixer' # Set MIXER to the mixer spDE comes with (alsamixer), change if you wanna use a different one.
+export LIST='ls' # Use 'ls' to list files and directories.
+export LISTDEVICE='lsblk' # Use 'lsblk' to list devices
+export DEVICEINFO='df' # Use 'df' to view information about a device
+
+# Web browser aliases
+alias :w='$BROWSER'
+
+# Editor aliases
+alias vi=$EDITOR
+alias nvim=$EDITOR
+alias :e=$EDITOR
+alias e=$EDITOR
+
+# ls aliases
+alias ls='$LIST -lah --color=auto'
+alias mix=$MIXER
+
+# list aliases
+alias :l='$LIST -lah --color=auto'
+alias :lb=$LISTDEVICE
+alias :ld=$DEVICEINFO
+
+# mixer aliases
+alias :a=$MIXER
+
+# General terminal command aliases
+alias :q='exit'
+alias :c='clear'
+
+# make aliases
+alias make='make -j$(nproc)'
+
+# application
+alias rss='killall mpv ; killall newsboat ; newsboat'
+
+# "mk" aliases
+alias mkexec='chmod +x'
+alias mkdir='mkdir -pv'
+
+# youtube-dl/yt-dlp aliases
+alias mp3dl='$PERM youtube-dl -x --audio-format mp3 --prefer-ffmpeg'
+alias mp4dl='$PERM youtube-dl -f best --prefer-ffmpeg'
+
+# File aliases
+alias urls='$EDITOR ~/.config/newsboat/urls'
+alias bashrc='$EDITOR ~/.bashrc'
+alias zshrc='$EDITOR ~/.zshrc'
+
+# Basic cd aliases
+alias ..='cd ..'
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# "GO" aliases
+alias goconfig="cd ~/.config"
+alias godl="cd ~/Downloads"
+alias gobin="cd /usr/bin"
+alias golocal="cd /usr/local/bin"
+
+# Extraction aliases
+alias untar='$PERM tar xpvf'
+alias unrar='$PERM unrar x'
+
+# spDE specific aliases
+alias spdeconfig-wm='$EDITOR /usr/local/bin/.spDE/dwm/config.def.h && rm /usr/local/bin/.spDE/dwm/config.h && make $(nproc)'
+alias spdeconfig-term='$EDITOR /usr/local/bin/.spDE/st/config.def.h && rm /usr/local/bin/.spDE/st/config.h && make $(nproc)'
+alias spdeconfig-menu='$EDITOR /usr/local/bin/.spDE/dmenu/config.def.h && rm /usr/local/bin/.spDE/dmenu/config.h && make install'
+alias spdeconfig-status='$EDITOR /usr/local/bin/.spDE/slstatus/config.def.h && rm /usr/local/bin/.spDE/slstatus/config.h && make $(nproc)'
+########################################################
+clear
+$FETCH
