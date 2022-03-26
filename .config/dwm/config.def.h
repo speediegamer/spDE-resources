@@ -88,6 +88,8 @@ static Key keys[] = {
 	{ ControlMask|ShiftMask,        XK_y,      spawn,          SHCMD("$TERMINAL yt || $TERMINAL ytfzf") },
 	{ ControlMask|MODKEY,           XK_y,      spawn,          SHCMD("$TERMINAL rss || $TERMINAL newsboat") },
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("$TERMINAL htop") },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("$TERMINAL /usr/bin/setwallpaper") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("$TERMINAL cat /usr/local/bin/.spDE/dwm/keybinds | less") },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("$TERMINAL alsamixer || $TERMINAL pulsemixer") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("$TERMINAL mocp -T transparent-background $MUSICDIR") }, 
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
