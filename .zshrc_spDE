@@ -30,6 +30,7 @@ export LANG='en_US.UTF-8' # Change if you wish to use a different language.
 export TERM='st-256color' # Change if you will be switching out the terminal
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/usr/lib/llvm/13/bin:$CPATH
 export PLAYER='mpv' # What media player to use. mpv is default since it comes with spDE.
+export MUSICDIR=/home/$(whoami)/Music # Directory where moc will look for music.
 export TERMINAL='/usr/local/bin/.spDE/st/st' # Required to be exported by my dwm configuration!!
 export BROWSER='firefox' # Required to be exported by my dwm configuration!!
 export SEARCH='https://searx.org' # Default search engine to use
