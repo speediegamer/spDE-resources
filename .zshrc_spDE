@@ -51,6 +51,8 @@ export DEVICEINFO='df' # Use 'df' to view information about a device
 alias :w='$BROWSER'
 
 # Editor aliases
+alias vim=$EDITOR
+alias nano=$EDITOR
 alias vi=$EDITOR
 alias nvim=$EDITOR
 alias :e=$EDITOR
