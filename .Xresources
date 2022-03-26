@@ -1,4 +1,6 @@
-!! ST
+!! spDE .Xresources
+!! https://spdgmr.github.io/spde
+
 ! special
 *.foreground:   #e7e7e7
 *.background:   #202020
@@ -57,12 +59,4 @@ dwm.showbar: 1
 dwm.topbar: 1
 dwm.resizehints: 0
 dwm.mfact: 0.50
-
-!! URXVT
-URxvt.font: xft:Terminus:style=Mono:pixelsize=15.5:antialias=true:autohint=false
-URxvt.scrollBar: false
-URxvt.scrollBar_right: false
-URxvt.clipboard.autocopy: true
-URxvt.iso14755: false
-URxvt.cursorBlink: true
 
