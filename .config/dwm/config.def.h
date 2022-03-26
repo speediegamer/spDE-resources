@@ -78,13 +78,13 @@ ResourcePref resources[] = {
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_comma,  spawn,          SHCMD("/usr/bin/dmenu_run || dmenu_run") },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("$TERMINAL") },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("/usr/local/bin/.spDE/st/st") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("maim -sB | xclip -selection clipboard -t image/png") },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("$TERMINAL fff || $TERMINAL ranger") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,             XK_t,	   spawn,          SHCMD("$TERMINAL $EDITOR") },
-    { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("killall $BROWSER || pkill $BROWSER") },
-    { MODKEY|ControlMask,           XK_m,      spawn,          SHCMD("killall mocp || pkill mocp") },
+        { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("killall $BROWSER || pkill $BROWSER") },
+        { MODKEY|ControlMask,           XK_m,      spawn,          SHCMD("killall mocp || pkill mocp") },
 	{ ControlMask|ShiftMask,        XK_y,      spawn,          SHCMD("$TERMINAL yt || $TERMINAL ytfzf") },
 	{ ControlMask|MODKEY,           XK_y,      spawn,          SHCMD("$TERMINAL rss || $TERMINAL newsboat") },
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("$TERMINAL htop") },
