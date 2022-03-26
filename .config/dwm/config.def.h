@@ -1,26 +1,31 @@
 // spDE dwm configuration
-static const unsigned int borderpx            = 1;
-static const unsigned int snap                = 32;
-static const unsigned int gappx               = 4;
-static const int showbar                      = 1;
-static const int topbar                       = 1;
-static const char *fonts[]                    = { "Terminus:size=8", "fontawesome:size=8" };
-static const char col_background[]            = "#222222"; // dwm dark bg & slstatus bg
-static const char col_backgroundmid[]         = "#222222"; // dwm middle background
-static const char col_textnorm[]              = "#bbbbbb"; // application title bar/font for norm
-static const char col_textsel[]               = "#eeeeee"; // dwm text/font for selected
-static const char col_windowbordernorm[]      = "#5757ff"; // dwm norm window border
-static const char col_windowbordersel[]       = "#5757ff"; // dwm sel window border
+// https://spdgmr.github.io/spde
+
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/zsh", "-c", cmd, NULL } } // Change if you're going to use a different shell.
+
+static unsigned int borderpx                  = 1;
+static unsigned int snap                      = 32;
+static const unsigned int gappx               = 5;
+static int showbar                            = 1;
+static int topbar                             = 1;
+static char font[]                            = "Terminus:size=8";
+static const char *fonts[]                    = { font };
+static char col_background[]                  = "#222222"; // dwm dark bg & slstatus bg
+static char col_backgroundmid[]               = "#222222"; // dwm middle background
+static char col_textnorm[]                    = "#bbbbbb"; // application title bar/font for norm
+static char col_textsel[]                     = "#eeeeee"; // dwm text/font for selected
+static char col_windowbordernorm[]            = "#5757ff"; // dwm norm window border
+static char col_windowbordersel[]             = "#5757ff"; // dwm sel window border
 static const unsigned int baralpha            = 0xd0;
 static const unsigned int borderalpha         = OPAQUE;
-static const float mfact                      = 0.50;
-static const int nmaster                      = 1;
-static const int resizehints                  = 0;
+static float mfact                            = 0.50;
+static int nmaster                            = 1;
+static int resizehints                        = 0;
 static char dmenumon[2]                       = "0";
 static const char *dmenucmd[]                 = { NULL };
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const char *alttags[] = { "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]", "[9]" };
-static const char *colors[][3]      = {
+static char *colors[][3]      = {
 	[SchemeNorm] = { col_textnorm, col_background, col_windowbordernorm },
 	[SchemeSel]  = { col_textsel, col_backgroundmid, col_windowbordersel }, 
 //                       text         background         window border
@@ -35,18 +40,17 @@ static const unsigned int alphas[][3]      = {
 static const Rule rules[] = {
     	/* class       instance    title       tags mask     CenterFirst   isfloating   monitor */
         { "st",        NULL,       NULL,       3 << 9,       0,            0,           -1 },
-	{ "Firefox",   NULL,       NULL,       2 << 9,       0,            0,           -1 },
-	{ "Librewolf", NULL,       NULL,       2 << 9,       0,            0,           -1 },
-	{ "Chromium",  NULL,       NULL,       2 << 9,       0,            0,           -1 },
-	{ "urxvt",     NULL,       NULL,       3 << 9,       0,            0,           -1 },
+	    { "Firefox",   NULL,       NULL,       2 << 9,       0,            0,           -1 },
+		{ "Librewolf", NULL,       NULL,       2 << 9,       0,            0,           -1 },
+		{ "urxvt",     NULL,       NULL,       3 << 9,       0,            0,           -1 },
 };
 
 #include "layouts.c"
 static const Layout layouts[] = {
-        { "",          tile },
-	{ "",          NULL },
-	{ "",       monocle },
-	{ "",          grid },
+    { "",          tile },
+	{ "",          NULL },
+	{ "",       monocle },
+	{ "",          grid },
 };
 
 #define MODKEY Mod1Mask
@@ -54,24 +58,38 @@ static const Layout layouts[] = {
 	{ MODKEY|ShiftMask,             KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggletag,      {.ui = 1 << TAG} },
 
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+ResourcePref resources[] = {
+       { "font",                 STRING,  &font },
+       { "col_background",       STRING,  &col_background },
+       { "col_backgroundmid",    STRING,  &col_backgroundmid },
+       { "col_textnorm",         STRING,  &col_textnorm },
+       { "col_windowbordersel",  STRING,  &col_windowbordersel },
+       { "col_windowbordernorm", STRING,  &col_windowbordernorm },
+       { "col_textsel",          STRING,  &col_textsel },
+       { "borderpx",             INTEGER, &borderpx }, 
+	   { "snap",                 INTEGER, &snap },
+       { "showbar",              INTEGER, &showbar },
+       { "topbar",               INTEGER, &topbar },
+       { "nmaster",              INTEGER, &nmaster },
+       { "resizehints",          INTEGER, &resizehints },
+       { "mfact",                FLOAT,   &mfact },
+};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_comma,  spawn,          SHCMD("dmenu_run") },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("/usr/local/bin/.spDE/st/st") },
+	{ MODKEY|ShiftMask,             XK_comma,  spawn,          SHCMD("/usr/bin/dmenu_run || dmenu_run") },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("$TERMINAL") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("maim -sB | xclip -selection clipboard -t image/png") },
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st fff") },
-	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("librewolf || firefox || chromium || chrome") },
-	{ ControlMask|ShiftMask,        XK_d,      spawn,          SHCMD("librewolf https://discord.com/channels/@me || firefox https://discord.com/channels/@me") },
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st htop") },
-	{ ControlMask|MODKEY,           XK_x,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st btop --utf-force") },
-	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("obs") },
-	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st alsamixer") },
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st mocp -T transparent-background") }, 
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st /usr/bin/setwallpaper") }, 
-	{ MODKEY|ControlMask,           XK_h,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st nvim /usr/local/bin/.spDE/dwm/keybinds") },
-	{ MODKEY|ControlMask,           XK_h,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st newsboat") },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("$TERMINAL fff || $TERMINAL ranger") },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$BROWSER") },
+	{ MODKEY|ShiftMask,             XK_t,	   spawn,          SHCMD("$TERMINAL $EDITOR") },
+    { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("killall $BROWSER || pkill $BROWSER") },
+    { MODKEY|ControlMask,           XK_m,      spawn,          SHCMD("killall mocp || pkill mocp") },
+	{ ControlMask|ShiftMask,        XK_y,      spawn,          SHCMD("$TERMINAL yt || $TERMINAL ytfzf") },
+	{ ControlMask|MODKEY,           XK_y,      spawn,          SHCMD("$TERMINAL rss || $TERMINAL newsboat") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("$TERMINAL htop") },
+	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("$TERMINAL alsamixer || $TERMINAL pulsemixer") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("$TERMINAL mocp -T transparent-background $MUSICDIR") }, 
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -106,7 +124,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD("/usr/local/bin/.spDE/st/st") },
+	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD("$TERMINAL") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
