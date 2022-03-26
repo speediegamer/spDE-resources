@@ -1,8 +1,6 @@
 // spDE dwm configuration
 // https://spdgmr.github.io/spde
 
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/zsh", "-c", cmd, NULL } } // Change if you're going to use a different shell.
-
 static unsigned int borderpx                  = 1;
 static unsigned int snap                      = 32;
 static const unsigned int gappx               = 5;
@@ -74,6 +72,8 @@ ResourcePref resources[] = {
        { "resizehints",          INTEGER, &resizehints },
        { "mfact",                FLOAT,   &mfact },
 };
+
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/zsh", "-c", cmd, NULL } }
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
