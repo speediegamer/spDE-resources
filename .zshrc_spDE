@@ -107,5 +107,4 @@ alias spdeconfig-term='$EDITOR /usr/local/bin/.spDE/st/config.def.h && rm /usr/l
 alias spdeconfig-menu='$EDITOR /usr/local/bin/.spDE/dmenu/config.def.h && rm /usr/local/bin/.spDE/dmenu/config.h ; make install'
 alias spdeconfig-status='$EDITOR /usr/local/bin/.spDE/slstatus/config.def.h && rm /usr/local/bin/.spDE/slstatus/config.h ; make $(nproc)'
 ########################################################
-clear
-$FETCH
+
