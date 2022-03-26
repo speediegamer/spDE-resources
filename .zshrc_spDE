@@ -13,9 +13,9 @@ if [[ "$(</etc/os-release)" =~ "void" ]]; then
 elif [[ "$(</etc/os-release)" =~ "gentoo" ]]; then
     export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 5)$host$(tput setf 4) %d$(tput sgr0)]$ " && bin="-bin"
 elif [[ "$(</etc/os-release)" =~ "arch" ]]; then
-    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 13)$host$(tput setf 4) %d$(tput sgr0)]$ "
+    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 3)$host$(tput setf 4) %d$(tput sgr0)]$ "
 elif [[ "$(</etc/os-release)" =~ "artix" ]]; then
-    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 13)$host$(tput setf 4) %d$(tput sgr0)]$ "
+    export PS1col="[$(tput setf 3)$(whoami)$(tput setf 6)@$(tput setf 3)$host$(tput setf 4) %d$(tput sgr0)]$ "
 fi
 
 # Make PS1 red if the user is logged in as root (su)
