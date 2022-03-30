@@ -111,10 +111,10 @@ alias untar='$PERM tar xpvf'
 alias unrar='$PERM unrar x'
 
 # spDE specific aliases
-alias spdeconfig-wm='$EDITOR /usr/local/bin/.spDE/dwm/config.def.h && rm /usr/local/bin/.spDE/dwm/config.h ; make $(nproc)'
-alias spdeconfig-term='$EDITOR /usr/local/bin/.spDE/st/config.def.h && rm /usr/local/bin/.spDE/st/config.h ; make $(nproc)'
-alias spdeconfig-menu='$EDITOR /usr/local/bin/.spDE/dmenu/config.def.h && rm /usr/local/bin/.spDE/dmenu/config.h ; make install'
-alias spdeconfig-status='$EDITOR /usr/local/bin/.spDE/slstatus/config.def.h && rm /usr/local/bin/.spDE/slstatus/config.h ; make $(nproc)'
+alias spdeconfig-wm='$EDITOR /usr/local/bin/.spDE/dwm/config.def.h && rm /usr/local/bin/.spDE/dwm/config.h ; cd /usr/local/bin/.spDE/dwm/ ; make $(nproc)'
+alias spdeconfig-term='$EDITOR /usr/local/bin/.spDE/st/config.def.h && rm /usr/local/bin/.spDE/st/config.h ; cd /usr/local/bin/.spDE/st/ ; make $(nproc)'
+alias spdeconfig-menu='$EDITOR /usr/local/bin/.spDE/dmenu/config.def.h && rm /usr/local/bin/.spDE/dmenu/config.h ; cd /usr/local/bin/.spDE/dmenu/ ; make install'
+alias spdeconfig-status='$EDITOR /usr/local/bin/.spDE/slstatus/config.def.h && rm /usr/local/bin/.spDE/slstatus/config.h ; cd /usr/local/bin/.spDE/slstatus/ ; make $(nproc)'
 alias spdeversion='cat /usr/local/bin/.spDE/ver'
 ########################################################
 
