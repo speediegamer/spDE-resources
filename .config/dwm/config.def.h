@@ -38,9 +38,9 @@ static const unsigned int alphas[][3]      = {
 static const Rule rules[] = {
     	/* class       instance    title       tags mask     CenterFirst   isfloating   monitor */
         { "st",        NULL,       NULL,       3 << 9,       0,            0,           -1 },
-	    { "Firefox",   NULL,       NULL,       2 << 9,       0,            0,           -1 },
-		{ "Librewolf", NULL,       NULL,       2 << 9,       0,            0,           -1 },
-		{ "urxvt",     NULL,       NULL,       3 << 9,       0,            0,           -1 },
+	{ "Firefox",   NULL,       NULL,       2 << 9,       0,            0,           -1 },
+	{ "Librewolf", NULL,       NULL,       2 << 9,       0,            0,           -1 },
+	{ "urxvt",     NULL,       NULL,       3 << 9,       0,            0,           -1 },
 };
 
 #include "layouts.c"
@@ -75,23 +75,29 @@ ResourcePref resources[] = {
 
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/zsh", "-c", cmd, NULL } }
 
+//  KEYBINDS
+
+//  "/usr/local/bin/.spDE/st/st" is your terminal. This comes with spDE and can be used with dwm.
+//  "firefox" is your web browser. This comes with spDE and can be used with dwm.
+//  "nvim" is your text editor. This comes with spDE and can be used with dwm.
+//  NOTE: You can swap these out for $BROWSER, $TERMINAL and $EDITOR. Make sure these variables are exported in .zshrc
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_comma,  spawn,          SHCMD("/usr/bin/dmenu_run || dmenu_run") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("/usr/local/bin/.spDE/st/st") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("maim -sB | xclip -selection clipboard -t image/png") },
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("$TERMINAL fff || $TERMINAL ranger") },
-	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$BROWSER") },
-	{ MODKEY|ShiftMask,             XK_t,	   spawn,          SHCMD("$TERMINAL $EDITOR") },
-        { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("killall $BROWSER || pkill $BROWSER") },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st fff || /usr/local/bin/.spDE/st/st ranger") },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("firefox") },
+	{ MODKEY|ShiftMask,             XK_t,	   spawn,          SHCMD("/usr/local/bin/.spDE/st/st nvim") },
+        { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("killall firefox || pkill firefox") },
         { MODKEY|ControlMask,           XK_m,      spawn,          SHCMD("killall mocp || pkill mocp") },
-	{ ControlMask|ShiftMask,        XK_y,      spawn,          SHCMD("$TERMINAL yt || $TERMINAL ytfzf") },
-	{ ControlMask|MODKEY,           XK_y,      spawn,          SHCMD("$TERMINAL rss || $TERMINAL newsboat") },
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("$TERMINAL htop") },
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("$TERMINAL /usr/bin/setwallpaper") },
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("$TERMINAL cat /usr/local/bin/.spDE/dwm/keybinds | less") },
-	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("$TERMINAL alsamixer || $TERMINAL pulsemixer") },
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("$TERMINAL mocp -T transparent-background $MUSICDIR") }, 
+	{ ControlMask|ShiftMask,        XK_y,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st yt || /usr/local/bin/.spDE/st/st ytfzf") },
+	{ ControlMask|MODKEY,           XK_y,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st rss || /usr/local/bin/.spDE/st/st newsboat") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st htop") },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st /usr/bin/setwallpaper") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st cat /usr/local/bin/.spDE/dwm/keybinds | less") },
+	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st alsamixer || /usr/local/bin/.spDE/st/st pulsemixer") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("/usr/local/bin/.spDE/st/st mocp -T transparent-background $MUSICDIR") }, 
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -126,7 +132,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD("$TERMINAL") },
+	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD("/usr/local/bin/.spDE/st/st") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
